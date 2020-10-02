@@ -98,20 +98,7 @@ KEY_PROPS = [
 ]
 
 def _is_olpcm_model():
-    """Check via setxkbmap if the keyboard model is olpcm.
-
-    Keyboard model code is 'olpcm' for non-membrane, mechanical
-    keyboard, and 'olpc' for membrane keyboard.
-
-    """
-    code = None
-    p = subprocess.Popen(["setxkbmap", "-query"], stdout=subprocess.PIPE)
-    out, err = p.communicate()
-    
-    for line in out.decode('utf-8').splitlines():
-        if line.startswith('model:'):
-            code = line.split()[1]
-    return code == 'olpcm'
+    return False
 
 def get_layout():
     if _is_olpcm_model():

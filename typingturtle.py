@@ -44,6 +44,8 @@ from sugar3.graphics.toolbarbox import ToolbarBox
 from sugar3.activity.widgets import StopButton
 from sugar3.activity.widgets import ActivityToolbarButton
 
+from sugarapp.widgets import SugarCompatibleActivity
+
 # Initialize logging.
 log = logging.getLogger('Typing Turtle')
 log.setLevel(logging.DEBUG)
@@ -78,9 +80,9 @@ import mainscreen, editlessonlistscreen
 # 
 # It owns the main application window, and all the various toolbars and options.
 # Activity Screens are stored in a stack, with the currently active screen on top.
-class TypingTurtle(sugar3.activity.activity.Activity):
+class TypingTurtle(SugarCompatibleActivity):
     def __init__ (self, handle):
-        sugar3.activity.activity.Activity.__init__(self, handle)
+        SugarCompatibleActivity.__init__(self, handle)
         self.set_title(_("Typing Turtle"))
         self.max_participants = 1
         
